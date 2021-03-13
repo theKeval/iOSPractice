@@ -8,7 +8,6 @@
 import UIKit
 
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-    
     //this function to determine how many parts each row of the picker view has
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -17,7 +16,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return bookList.count
     }
-    
     //this fucntion to fill items as rows in the picker view
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         bookList[row].Title
