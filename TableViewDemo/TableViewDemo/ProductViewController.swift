@@ -14,7 +14,7 @@ class ProductViewController: UIViewController {
     @IBOutlet weak var productDetails: UITextView!
     @IBOutlet weak var productName: UILabel!
     var name = ""
-    var img = ""
+    var img: [String] = [""]
     var details = ""
     var price = 0.0
     
@@ -24,7 +24,7 @@ class ProductViewController: UIViewController {
         super.viewDidLoad()
         
         productName.text = name
-        productImage.image=UIImage(named:img)
+        productImage.image=UIImage(named:img[0])
         productDetails.text=details
 
         // Do any additional setup after loading the view.
@@ -54,4 +54,27 @@ class ProductViewController: UIViewController {
     }
     @IBAction func placeOrder(_ sender: Any) {
     }
+    
+    var currentImgIndex = 0
+    
+    @IBAction func nextImage(_ sender: Any) {
+        print("\n\(img)\n\(currentImgIndex)")
+        
+        if (currentImgIndex+1) < img.count {
+            currentImgIndex += 1
+            
+            print("\(img[currentImgIndex])")
+            
+            productImage.image = UIImage(named: img[currentImgIndex])
+        }
+    }
+    
+    @IBAction func prevImage(_ sender: Any) {
+        if currentImgIndex > 0 {
+            currentImgIndex -= 1
+            productImage.image = UIImage(named: img[currentImgIndex])
+        }
+    }
+    
+    
 }

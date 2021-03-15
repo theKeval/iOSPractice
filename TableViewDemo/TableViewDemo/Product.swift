@@ -7,13 +7,15 @@
 
 import Foundation
 class Product {
+    var category:String
     var name:String
     var price:Double
-    var img:String
+    var img:[String]
     var details:String
     
-    init(name:String, price:Double, img:String, details:String)
+    init(cat:String, name:String, price:Double, img:[String], details:String)
     {
+        self.category=cat
         self.name=name
         self.price=price
         self.img=img

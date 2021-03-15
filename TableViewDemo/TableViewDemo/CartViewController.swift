@@ -18,6 +18,14 @@ class CartViewController: UIViewController , UITableViewDelegate, UITableViewDat
         return cell
     }
     
+    //the function for the action when selecting an item in the tableView
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        totalAmount -= items[indexPath.row].totPrice
+        items.remove(at:indexPath.row)
+        cartTable.reloadData()
+        total.text=String(totalAmount)
+        
+    }
     
     @IBOutlet weak var total: UILabel!
     @IBOutlet weak var cartTable: UITableView!
